@@ -5,13 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class Manager : MonoBehaviour {
 
-	
-	void Update(){
-		if(Input.GetKeyDown(KeyCode.P)){
-			GetComponent<LevelData>().State = GetComponent<LevelData>().State == 0 ? 1 : GetComponent<LevelData>().State;
-		}
-	}
-	
 	public void SaveGame()
 	{
 
@@ -19,5 +12,12 @@ public class Manager : MonoBehaviour {
 
 	public void GameOver(){
 		
+	}
+
+	public void LoadScene(string scene){
+		if(scene == "restart")
+			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+		else
+			SceneManager.LoadScene(scene);
 	}
 }

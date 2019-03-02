@@ -6,10 +6,9 @@ using UnityEngine.UI;
 public class AssignPauseScreen : MonoBehaviour {
 
 	public GameObject PauseUI;
-	public Button MainMenu,Restart;
 	public Text StateText;
 	LevelData level;
-	bool status;
+	public bool status;
 
 
 	// Use this for initialization
@@ -22,9 +21,9 @@ public class AssignPauseScreen : MonoBehaviour {
 
 		if(Input.GetKeyDown(KeyCode.P)){
 			status = !status;
-			if(!status)
+			if(status)
 				level.State = 1;
-			else if (status)
+			else if (!status)
 				level.State = 0;
 		}
 	}
