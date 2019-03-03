@@ -10,13 +10,5 @@ public class LevelData : MonoBehaviour {
 	public int Cycles;
 	public int State = 0; // 0--> off 1--> Pause 2--> death
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
 }

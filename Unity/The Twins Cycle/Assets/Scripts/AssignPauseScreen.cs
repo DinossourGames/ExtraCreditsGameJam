@@ -11,12 +11,11 @@ public class AssignPauseScreen : MonoBehaviour {
 	public bool status;
 
 
-	// Use this for initialization
+
 	void Start () {
 		level = GetComponent<LevelData>();
 	}
 	
-	// Update is called once per frame
 	void Update () {
 
 		if(Input.GetKeyDown(KeyCode.P)){

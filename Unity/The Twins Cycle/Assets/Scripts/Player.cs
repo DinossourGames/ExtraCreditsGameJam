@@ -14,6 +14,7 @@ public class Player : MonoBehaviour {
 	public float checkRadius;
 	public LayerMask whatIsGround;
 
+	private bool facingRight = true;
 
 
 	void Start () {
@@ -37,5 +38,17 @@ public class Player : MonoBehaviour {
 
 		moveInput = Input.GetAxis("Horizontal");
 		rb.velocity = new Vector2(moveInput * movementSpeed, rb.velocity.y);
+
+		if(!facingRight && moveInput > 0)
+			Flip();
+		else if(facingRight && moveInput < 0)
+			Flip();
+	}
+
+	void Flip(){
+		facingRight = !facingRight;
+		Vector3 Scaler = transform.localScale;
+		Scaler.x *= -1;
+		transform.localScale = Scaler;
 	}
 }
