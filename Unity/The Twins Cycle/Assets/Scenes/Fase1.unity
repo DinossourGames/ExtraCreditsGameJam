@@ -3737,6 +3737,7 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
+  isMain: 0
 --- !u!212 &1987182949
 SpriteRenderer:
   m_ObjectHideFlags: 0
