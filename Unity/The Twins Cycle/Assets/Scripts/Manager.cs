@@ -5,14 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class Manager : MonoBehaviour {
 
-	public void SaveGame()
-	{
-
-	}
-
-	public void GameOver(){
-		
-	}
 
 	public void LoadScene(string scene){
 		if(scene == "restart")
