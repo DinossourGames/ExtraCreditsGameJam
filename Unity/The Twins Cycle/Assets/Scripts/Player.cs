@@ -5,21 +5,37 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 
     public float movementSpeed;
-	public float jumpHeight;
+	public float jumpForce;
+	float moveInput;
+	Rigidbody2D rb;
 
-	bool onAir = false;
+	private bool isGrounded;
+	public Transform groundCheck;
+	public float checkRadius;
+	public LayerMask whatIsGround;
 
-	// Use this for initialization
+
+
 	void Start () {
-		
+		rb = GetComponent<Rigidbody2D>();
+		rb.freezeRotation = true;
 	}
 	
-	// Update is called once per frame
-	void Update () {
+	void Update(){
 
-		float x = Input.GetAxis("Horizontal") * movementSpeed * Time.deltaTime;
-		float y = Input.GetAxis("Vertical") * jumpHeight * Time.deltaTime;
-		transform.position = new Vector2(transform.position.x + x,transform.position.y);
 
+		if((Input.GetKeyDown(KeyCode.JoystickButton1) || Input.GetKeyDown(KeyCode.UpArrow)) && isGrounded){
+
+			rb.velocity = Vector2.up * jumpForce;
+		}
+
+	}
+
+	void FixedUpdate(){
+
+		isGrounded = Physics2D.OverlapCircle(groundCheck.position,checkRadius,whatIsGround);
+
+		moveInput = Input.GetAxis("Horizontal");
+		rb.velocity = new Vector2(moveInput * movementSpeed, rb.velocity.y);
 	}
 }
