@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class TimeCoreManager : MonoBehaviour
 {
 
@@ -16,12 +17,14 @@ public class TimeCoreManager : MonoBehaviour
     public float maxZoom = 10f;
     public float zoomLimiter = 50f;
     bool isChangeable = false;
-    bool hasCollided = false;
-    public string collisionName= "HasCollision";
+    //bool hasCollided = false;
+    string collisionName = "HasCollision";
+    int collisionIndex = -1;
     public float smoothTime = .5f;
     public List<Transform> targets;
     public GameObject[] playerPrefabs; // 0 --> moon 1 --> sun
     bool whoIs; //true --> moon  false --> sun
+    ScenesManager sm;
    
     void Awake(){
         PlayerPrefs.DeleteKey(collisionName);
@@ -29,7 +32,9 @@ public class TimeCoreManager : MonoBehaviour
     void Start()
     {
         
+        sm = GetComponent<ScenesManager>();
         whoIs = playerPrefabs[0].GetComponent<Player>().isMain ? true : false;
+        playerPrefabs[0].GetComponent<Player>().animator.SetBool("Sleeping",true);
 
         if(!isChangeable) 
             targets.Add(playerPrefabs[1].GetComponent<Player>().transform);
@@ -42,15 +47,17 @@ public class TimeCoreManager : MonoBehaviour
     }
     void Update()
     {
+        collisionIndex =  PlayerPrefs.GetInt(collisionName,-1);
 
-        hasCollided = PlayerPrefs.GetInt(collisionName,0) == 0 ? false : true;
-        if(hasCollided && collisionName == "Level1Trigger"){
+        if(collisionIndex == 0){
             PlayerPrefs.DeleteKey(collisionName);
-
             if(targets.Count <= 1)
                 targets.Add(playerPrefabs[0].GetComponent<Player>().transform);
-
             isChangeable = true;
+        }
+        else if(collisionIndex == 1){
+            PlayerPrefs.DeleteKey(collisionName);
+            sm.Restart(0.3f);
         }
 
         if((Input.GetKeyDown(KeyCode.JoystickButton2) || Input.GetKeyDown(KeyCode.Space)) && isChangeable)
@@ -115,11 +122,15 @@ public class TimeCoreManager : MonoBehaviour
         if(whoIs){
             whoIs = false;
             playerPrefabs[0].GetComponent<Player>().isMain = false;
+            playerPrefabs[0].GetComponent<Player>().animator.SetBool("Sleeping",true);
             playerPrefabs[1].GetComponent<Player>().isMain = true;
+            playerPrefabs[1].GetComponent<Player>().animator.SetBool("Sleeping",false);
         }else{
             whoIs = true;
             playerPrefabs[1].GetComponent<Player>().isMain = false;
+            playerPrefabs[1].GetComponent<Player>().animator.SetBool("Sleeping",true);
             playerPrefabs[0].GetComponent<Player>().isMain = true;
+            playerPrefabs[0].GetComponent<Player>().animator.SetBool("Sleeping",false);
         }
     }
 }
