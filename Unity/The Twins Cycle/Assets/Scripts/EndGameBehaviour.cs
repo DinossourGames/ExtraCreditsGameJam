@@ -13,6 +13,7 @@ public class EndGameBehaviour : MonoBehaviour
 
       void Start()
     {
+        
         sprite = GetComponent<SpriteRenderer>();
         defaultColor = sprite.color;
     }

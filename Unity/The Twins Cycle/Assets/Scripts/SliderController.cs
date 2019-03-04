@@ -5,24 +5,30 @@ using UnityEngine;
 
 public class SliderController : MonoBehaviour
 {
-    Vector2 startPosition;
+    public Vector2 startPosition;
     public Vector2 endPosition;
     public float animationSpeed;
     public bool isVertical = false;
     public bool isLooping = false;
     bool locker = false;
-    bool state = false;
+    public bool state = false;
+    public bool defaultState = true;
     Vector2 position;
+    public bool isTriggered = true;
+    public string triggerName = "isActive";
     //List<Vector2> positions;
 
     void Start()
     {
-        startPosition = gameObject.transform.position;
+        if(startPosition.x == 0 && startPosition.y == 0)
+            startPosition = gameObject.transform.position;
     }
 
     void Update()
     {
-        state = PlayerPrefs.GetInt("isActive",0) == 1 ? true : false;
+        if(isTriggered)
+            state = PlayerPrefs.GetInt(triggerName,0) == 1 ? true : false;
+        
         position = gameObject.transform.position;
 
 
@@ -47,7 +53,9 @@ public class SliderController : MonoBehaviour
             }
 
         }else
-            Rewind();
+            if(defaultState)
+                Rewind();
+            
 
 
     }

@@ -60,15 +60,15 @@ public class TimeCoreManager : MonoBehaviour
     {
         collisionIndex =  PlayerPrefs.GetInt(collisionName,-1);
 
-        if(collisionIndex == 0){
+        if(collisionIndex == 0 || isChangeable){
             PlayerPrefs.DeleteKey(collisionName);
             if(targets.Count <= 1)
                 targets.Add(moon.transform);
             isChangeable = true;
         }
-        else if(collisionIndex == 1){
+        if(collisionIndex == 1){
             PlayerPrefs.DeleteKey(collisionName);
-            sm.Restart(0.3f);
+            sm.Restart();
         }
 
         if((Input.GetKeyDown(KeyCode.JoystickButton2) || Input.GetKeyDown(KeyCode.Space)) && isChangeable)

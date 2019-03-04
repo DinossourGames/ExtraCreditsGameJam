@@ -8,9 +8,10 @@ public class PressureController : MonoBehaviour {
 
 	SpriteRenderer spriteRenderer;
 	public Sprite[] sprites;
+	public string targetName = "isActive";
 
 	void Start(){
-		PlayerPrefs.SetInt("isActive",0);
+		PlayerPrefs.SetInt(targetName,0);
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		spriteRenderer.sprite = sprites[0];
 
@@ -18,11 +19,11 @@ public class PressureController : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D collision){
 		if(collision.gameObject.tag == "Player"){
 			spriteRenderer.sprite = sprites[1];
-			PlayerPrefs.SetInt("isActive",1);
+			PlayerPrefs.SetInt(targetName,1);
 		}
 	}
 	void OnCollisionExit2D(Collision2D collision){
 		spriteRenderer.sprite = sprites[0];
-		PlayerPrefs.SetInt("isActive",0);
+		PlayerPrefs.SetInt(targetName,0);
 	}
 }

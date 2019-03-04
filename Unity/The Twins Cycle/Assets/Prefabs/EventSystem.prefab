@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8681217010104400297}
   - component: {fileID: 8681217010104400296}
   - component: {fileID: 8681217010104400298}
+  - component: {fileID: 7089554363498667417}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -115,6 +116,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac60547fb133c1343a98f6b82e1d25d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sliderzinho: {fileID: 0}
+  backgroundDay: {fileID: 0}
+  slider: {fileID: 0}
   timeLeft: 15
   cam: {fileID: 0}
   offset: {x: -2.71, y: 1.28, z: -40}
@@ -129,3 +133,16 @@ MonoBehaviour:
   playerPrefabs:
   - {fileID: 0}
   - {fileID: 0}
+--- !u!114 &7089554363498667417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8681217010104400303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_GeneratorAsset: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 7adc61b1bef693c4384b9f3595cd67c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

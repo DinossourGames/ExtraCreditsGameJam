@@ -17,7 +17,8 @@ public class ScenesManager : MonoBehaviour
     }
 
     public void LoadNextDelayed(){
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex <= SceneManager.sceneCount - 1 ? SceneManager.GetActiveScene().buildIndex + 1 : SceneManager.sceneCount );
     }
 
     public void Restart(){
