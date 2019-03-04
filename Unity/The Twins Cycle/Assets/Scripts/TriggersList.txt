@@ -1,0 +1,8 @@
+THIS IS NOT A CONFIGURATION FILE
+-90 --> moon for endGame checker
+-65 --> default color to Endgame
+-45 --> sun for endGame checker
+-1 --> Ivalid Collision/NullSafetyNull
+0 --> Used when wants to start only with player 1(sun) and in some moment enables player two, used on initial fase
+1 --> Restart
+2 --> Endgame Checker --> returns -45 for sun and -90 for moon

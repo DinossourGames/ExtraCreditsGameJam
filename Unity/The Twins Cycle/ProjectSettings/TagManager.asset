@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Platforms
+  - PressurePlate
+  - Spikes
   layers:
   - Default
   - TransparentFX
@@ -13,10 +16,10 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - Ground
+  - Sun
+  - Moon
+  - idiota
   - 
   - 
   - 
@@ -38,6 +41,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Obstacles
+    uniqueID: 204074673
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Envinorement
+    uniqueID: 3889247981
     locked: 0
