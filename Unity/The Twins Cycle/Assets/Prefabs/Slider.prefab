@@ -129,3 +129,4 @@ MonoBehaviour:
   defaultState: 1
   isTriggered: 1
   triggerName: isActive
+  isSpecial: 0

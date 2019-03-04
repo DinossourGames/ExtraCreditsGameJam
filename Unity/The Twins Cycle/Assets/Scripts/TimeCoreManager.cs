@@ -158,7 +158,7 @@ public class TimeCoreManager : MonoBehaviour
             sun.isMain = true;
             sun.animator.SetBool("Sleeping",false);
         }else{
-            backgroundDay.sortingOrder = -2;
+            backgroundDay.sortingOrder = -4;
             whoIs = true;
             sun.isMain = false;
             sun.animator.SetBool("Sleeping",true);

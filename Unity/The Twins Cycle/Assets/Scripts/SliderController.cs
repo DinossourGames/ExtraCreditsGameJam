@@ -16,6 +16,8 @@ public class SliderController : MonoBehaviour
     Vector2 position;
     public bool isTriggered = true;
     public string triggerName = "isActive";
+    public int isSpecial = 0;
+    private bool isValidPlayer;
     //List<Vector2> positions;
 
     void Start()
@@ -28,7 +30,7 @@ public class SliderController : MonoBehaviour
     {
         if(isTriggered)
             state = PlayerPrefs.GetInt(triggerName,0) == 1 ? true : false;
-        
+
         position = gameObject.transform.position;
 
 
@@ -59,8 +61,6 @@ public class SliderController : MonoBehaviour
 
 
     }
-
-
 
     private void Rewind()
     {

@@ -26,7 +26,7 @@ public class EndFaseManager : MonoBehaviour
         var c = CheckData();
 
         if(a && b && c){
-            d.Load(.5f);
+            d.Load(sceneToLoad);
         }
     }
 
