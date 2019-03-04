@@ -9,11 +9,14 @@ public class ScenesManager : MonoBehaviour
     public void Load(string scene){
         SceneManager.LoadScene(scene);
     }
+    public void Load(float delayTime){
+        Invoke("LoadNextDelayed", delayTime);
+    }
     public void Load(int index){
         SceneManager.LoadScene(index);
     }
 
-    public void Load(bool nextScene){
+    public void LoadNextDelayed(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
